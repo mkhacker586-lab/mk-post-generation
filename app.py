@@ -9,9 +9,8 @@ TOKEN = "8602077726:AAGfuGftcPUSGamtbqsz3YgZSjsilmPjGBs"
 TELEGRAM_API = f"https://api.telegram.org/bot{TOKEN}"
 
 @app.route('/', methods=['GET'])
-chno = "M.K POST GENERATION Bot is live!"
 def home():
-    return chno
+    return "M.K POST GENERATION Bot is live!"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -93,6 +92,3 @@ def send_message(chat_id, text):
     url = f"{TELEGRAM_API}/sendMessage"
     payload = {"chat_id": chat_id, "text": text, "parse_mode": "Markdown"}
     requests.post(url, json=payload)
-
-if __name__ == "__main__":
-    app.run(debug=True)
